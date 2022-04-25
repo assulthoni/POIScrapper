@@ -128,7 +128,7 @@ def process(lat, long):
     return all_data
 
 def scrape_poi_billboard(lat, long,id=None, **kwargs):
-    SQL_CONN_STRING='mysql://root:YzByMb8ztD2T@34.101.155.34/thirdPartyData'
+    SQL_CONN_STRING='XXXXX' #change mysql conn string here
     engine = sa.create_engine(SQL_CONN_STRING)
     if lat is None or long is None:
         lat = kwargs['dag_run'].conf.get('lat', None)
@@ -144,7 +144,7 @@ def scrape_poi_billboard(lat, long,id=None, **kwargs):
     df.to_sql("poi_billboards", engine, if_exists="append")
     
 def get_billboard():
-    SQL_CONN_STRING='mysql://root:YzByMb8ztD2T@34.101.155.34/core'
+    SQL_CONN_STRING='XYXYYXYX' # change mysql conn here
     engine = sa.create_engine(SQL_CONN_STRING)
     df_billboard = pd.read_sql_table('billboards', engine)
     for idx, row in df_billboard.iterrows():
